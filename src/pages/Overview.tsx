@@ -1,11 +1,11 @@
-﻿import React, { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell,
   PieChart, Pie, Legend,
 } from "recharts"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Users, TrendingDown, DollarSign, RefreshCw, Tag, UserX, RotateCcw, AlertTriangle, VolumeX, Clock, AlertCircle } from "lucide-react"
+import { Users, UserCheck, TrendingDown, DollarSign, RefreshCw, Tag, UserX, RotateCcw, AlertTriangle, VolumeX, Clock, AlertCircle } from "lucide-react"
 
 interface OverviewData {
   kpis: {
@@ -99,12 +99,12 @@ export default function Overview() {
         <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4">Commercial Key Performance Indicators</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <KpiCard icon={<Users size={16} />} label="Total Customers" value={fmt(k.total_customers)} sub={`${fmt(k.active_customers)} with recorded orders`} />
-          <KpiCard icon={<TrendingDown size={16} />} label="Active Customers" value={fmt(k.active_customers)} sub={`${k.active_customers_pct.toFixed(1)}% of total portfolio`} valueClass="text-green-600" />
+          <KpiCard icon={<UserCheck size={16} />} label="Active Customers" value={fmt(k.active_customers)} sub={`${k.active_customers_pct.toFixed(1)}% of total portfolio`} valueClass="text-green-600" />
           <KpiCard icon={<AlertTriangle size={16} />} label="At-Risk Customers" value={fmt(k.at_risk_customers)} sub={`${k.at_risk_customers_pct.toFixed(1)}% health decline`} valueClass="text-amber-600" />
           <KpiCard icon={<DollarSign size={16} />} label="Net Customer Value (GMV)" value={`$${(k.total_net_value / 1e6).toFixed(2)}M`} sub={`$${k.avg_net_value.toFixed(2)} avg / customer`} valueClass="text-blue-600" />
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mt-4">
-          <KpiCard icon={<RefreshCw size={16} />} label="Repeat Purchase Rate" value={`${k.repeat_rate.toFixed(1)}%`} sub="≥ 2 orders per active customer" valueClass="text-green-600" />
+          <KpiCard icon={<RefreshCw size={16} />} label="Repeat Purchase Rate" value={`${k.repeat_rate.toFixed(1)}%`} sub="2+ orders per active customer" valueClass="text-green-600" />
           <KpiCard icon={<RotateCcw size={16} />} label="Overall Return Rate" value={`${k.return_rate.toFixed(2)}%`} sub="Erosion of Gross GMV" valueClass="text-red-600" />
           <KpiCard icon={<Tag size={16} />} label="Discount Dependency" value={`${k.deal_dependent_pct.toFixed(1)}%`} sub={`${k.avg_discount_pct.toFixed(1)}% avg discount usage`} valueClass="text-amber-600" />
           <KpiCard icon={<UserX size={16} />} label="Lost Accounts" value={fmt(k.lost_customers)} sub={`${k.lost_customers_pct.toFixed(1)}% near-zero activity`} valueClass="text-slate-500" />

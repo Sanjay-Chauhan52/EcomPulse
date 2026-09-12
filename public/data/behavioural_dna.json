@@ -70,7 +70,7 @@
         "unique_products_viewed": 3.0,
         "session_count": 1.0,
         "conversion_rate": 0.0,
-        "cart_abandonment_rate": 100.0
+        "cart_abandonment_rate": 1.0
       }
     },
     "Impulse Buyer": {
@@ -93,7 +93,7 @@
         "purchase_count": 1.0,
         "unique_products_viewed": 1.0,
         "session_count": 1.0,
-        "conversion_rate": 100.0,
+        "conversion_rate": 1.0,
         "cart_abandonment_rate": 0.0
       }
     },
@@ -117,7 +117,7 @@
         "purchase_count": 1.0,
         "unique_products_viewed": 6.0,
         "session_count": 2.0,
-        "conversion_rate": 50.0,
+        "conversion_rate": 0.5,
         "cart_abandonment_rate": 0.0
       }
     }

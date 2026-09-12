@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useMemo, useState } from "react"
+import React, { useEffect, useMemo, useState } from "react"
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, ReferenceLine,
 } from "recharts"
@@ -146,10 +146,11 @@ function VelocityChart({ hist, rec, label, unit }: { hist: number; rec: number; 
           <ReferenceLine y={hist} stroke="#94a3b8" strokeDasharray="3 3" />
         </BarChart>
       </ResponsiveContainer>
-      <div className="flex justify-between text-[10px] text-muted-foreground mt-1">
+      <div className="flex justify-between text-[10px] text-muted-foreground mt-1.5">
         <span>Historical: <b>{hist.toFixed(2)}</b></span>
-        <span className={improved ? "text-green-600 font-semibold" : "text-red-600 font-semibold"}>
-          Recent: {rec.toFixed(2)} {improved ? "▲" : "▼"}
+        <span className={`inline-flex items-center gap-0.5 font-semibold ${improved ? "text-green-600" : "text-red-600"}`}>
+          Recent: {rec.toFixed(2)}
+          {improved ? <TrendingUp className="h-3 w-3 inline ml-0.5" /> : <TrendingDown className="h-3 w-3 inline ml-0.5" />}
         </span>
       </div>
     </div>
@@ -245,36 +246,42 @@ export default function Customer360() {
         </div>
       </div>
 
-      {/* Selected Customer */}
-      {selectedId && (
-        <div className="rounded-xl border bg-muted/30 px-5 py-4">
-          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">
-            Selected Customer
-          </p>
-
-          <p className="text-3xl font-bold font-mono tracking-tight">
-            {selectedId}
+      {/* Customer Selection Bar */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-xl border bg-card p-4 shadow-xs">
+        <div>
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              Inspecting Customer Profile
+            </span>
+            {cust && (
+              <Badge variant="outline" className={`text-xs font-semibold ${healthBg(cust.health_bucket)}`}>
+                {cust.health_bucket}
+              </Badge>
+            )}
+          </div>
+          <p className="text-2xl font-bold font-mono tracking-tight text-foreground">
+            {selectedId} <span className="text-sm font-sans font-normal text-muted-foreground">• {cust?.segment ?? "CRM Account"}</span>
           </p>
         </div>
-      )}
-      {/* Customer Dropdown */}
-      <div className="relative max-w-xs">
-        <select
-          className="w-full rounded-lg border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
-          value={search}
-          onChange={(e) => {
-            setSearch(e.target.value);
-            selectCustomer(e.target.value);
-          }}
-        >
-          <option value="">Select Customer</option>
 
-          {customers.map((c) => (
-            <option key={c.customer_id} value={c.customer_id}>
-              {c.customer_id} - {c.segment} - {c.health_bucket}
-            </option>
-          ))}
-        </select>
+        <div className="relative min-w-[300px]">
+          <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider block mb-1">
+            Jump to Customer ID
+          </label>
+          <select
+            className="w-full rounded-lg border bg-background px-3 py-2 text-sm font-medium text-foreground shadow-xs focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer"
+            value={selectedId}
+            onChange={(e) => {
+              if (e.target.value) selectCustomer(e.target.value);
+            }}
+          >
+            {customers.map((c) => (
+              <option key={c.customer_id} value={c.customer_id}>
+                {c.customer_id} — {c.segment} ({c.health_bucket}, Score {c.health_score.toFixed(0)})
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
       {/* Profile Panel */}

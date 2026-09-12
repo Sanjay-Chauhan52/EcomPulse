@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useMemo, useState } from "react"
+import React, { useEffect, useMemo, useState } from "react"
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, LabelList,
 } from "recharts"
@@ -47,7 +47,12 @@ function FunnelStep({ label, value, pct, icon, color }: {
         <div className="flex justify-center mb-2" style={{ color }}>{icon}</div>
         <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">{label}</p>
         <p className="text-2xl font-bold" style={{ color }}>{fmt(value)}</p>
-        {pct && <p className="text-xs text-muted-foreground mt-1">↓ {pct}% drop-off from previous</p>}
+        {pct && (
+          <p className="text-xs text-muted-foreground mt-1 flex items-center justify-center gap-1">
+            <ArrowDown className="h-3 w-3 text-muted-foreground" />
+            <span>{pct}% drop-off</span>
+          </p>
+        )}
       </div>
     </div>
   )
@@ -146,7 +151,7 @@ export default function PurchaseFriction() {
           <TrendingDown size={18} className="text-amber-600 shrink-0" />
           <p className="text-sm">
             <span className="font-semibold text-amber-700">Overall Conversion Rate: {f.overall_conversion_pct}%</span>
-            <span className="text-muted-foreground ml-2">— only {fmt(f.purchases)} purchases from {fmt(f.views)} page views. The view→cart step is the largest bottleneck ({dropoffViewToCart}% drop).</span>
+            <span className="text-muted-foreground ml-2">— only {fmt(f.purchases)} purchases from {fmt(f.views)} page views. The view-to-cart step is the largest bottleneck ({dropoffViewToCart}% drop).</span>
           </p>
         </div>
       </section>

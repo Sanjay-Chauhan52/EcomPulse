@@ -53,9 +53,11 @@ export function Sidebar() {
         <div>
           <div className="px-3 mb-2 flex items-center justify-between">
             <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              CRM Layer (Lorenzo)
+              CRM & Commercial Layer
             </span>
-            <span className="text-[10px] text-muted-foreground/70">10K Accounts</span>
+            <span className="text-[11px] font-medium text-muted-foreground/70">
+              10K Accounts
+            </span>
           </div>
           <nav className="space-y-1">
             {crmNavItems.map((item) => {
@@ -85,9 +87,11 @@ export function Sidebar() {
         <div>
           <div className="px-3 mb-2 flex items-center justify-between">
             <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              Behavioral Layer (Mkechinov)
+              Clickstream & Behavioral
             </span>
-            <span className="text-[10px] text-muted-foreground/70">1.02M Users</span>
+            <span className="text-[11px] font-medium text-muted-foreground/70">
+              1.02M Users
+            </span>
           </div>
           <nav className="space-y-1">
             {behavioralNavItems.map((item) => {
@@ -114,7 +118,21 @@ export function Sidebar() {
         </div>
       </div>
 
-
+      {/* System Status Footer */}
+      <div className="p-3 border-t bg-muted/20">
+        <div className="rounded-lg border bg-background/60 p-2.5 text-xs shadow-xs">
+          <div className="flex items-center justify-between font-medium mb-1">
+            <span className="flex items-center gap-1.5 text-muted-foreground text-[11px]">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+              Engine Status
+            </span>
+            <span className="text-[10px] text-emerald-600 font-semibold uppercase tracking-wider">Active</span>
+          </div>
+          <p className="text-[10px] text-muted-foreground leading-snug">
+            Strict population decoupling enforced (Zero user-level merges)
+          </p>
+        </div>
+      </div>
     </aside>
   )
 }

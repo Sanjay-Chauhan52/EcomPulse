@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, LabelList,
   PieChart, Pie
@@ -19,6 +19,8 @@ import {
   Lightbulb,
   Sparkles,
   Users,
+  TrendingUp,
+  TrendingDown,
 } from "lucide-react"
 
 interface Archetype {
@@ -486,10 +488,18 @@ export default function BehaviouralDNA() {
                       <div key={featKey} className="rounded-lg border bg-background p-2.5 text-xs">
                         <div className="text-muted-foreground truncate">{featConf.label}</div>
                         <div className="text-base font-bold text-foreground mt-0.5">{formattedSeg}</div>
-                        <div className="text-[10px] text-muted-foreground flex items-center gap-1 mt-0.5">
-                          <span>Pop: {formattedGlobal}</span>
-                          {isHigher && <span className="text-emerald-600 font-semibold">&uarr; High</span>}
-                          {isLower && <span className="text-amber-600 font-semibold">&darr; Low</span>}
+                        <div className="text-[10px] text-muted-foreground flex items-center gap-1.5 mt-1">
+                          <span>Benchmark: {formattedGlobal}</span>
+                          {isHigher && (
+                            <span className="inline-flex items-center text-emerald-600 font-semibold">
+                              <TrendingUp className="h-3 w-3 mr-0.5" /> Above Avg
+                            </span>
+                          )}
+                          {isLower && (
+                            <span className="inline-flex items-center text-amber-600 font-semibold">
+                              <TrendingDown className="h-3 w-3 mr-0.5" /> Below Avg
+                            </span>
+                          )}
                         </div>
                       </div>
                     )

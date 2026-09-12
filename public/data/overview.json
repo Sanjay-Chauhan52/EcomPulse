@@ -3,10 +3,10 @@
     "total_customers": 10000,
     "active_customers": 9941,
     "active_customers_pct": 99.4,
-    "at_risk_customers": 4668,
-    "at_risk_customers_pct": 46.7,
-    "lost_customers": 1066,
-    "lost_customers_pct": 10.7,
+    "at_risk_customers": 4342,
+    "at_risk_customers_pct": 43.4,
+    "lost_customers": 1085,
+    "lost_customers_pct": 10.8,
     "total_net_value": 5443248.04,
     "avg_net_value": 544.32,
     "repeat_rate": 98.0,
@@ -45,19 +45,19 @@
     "relationship_health": [
       {
         "bucket": "Healthy",
-        "count": 763
+        "count": 996
       },
       {
         "bucket": "Declining",
-        "count": 3503
+        "count": 3577
       },
       {
         "bucket": "At Risk",
-        "count": 4668
+        "count": 4342
       },
       {
         "bucket": "Lost",
-        "count": 1066
+        "count": 1085
       }
     ],
     "discount_matrix": [

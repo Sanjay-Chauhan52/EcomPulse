@@ -148,10 +148,12 @@ export default function RelationshipRisk() {
           {(["champions", "silent_churn", "vocal_loyalists", "detractors"] as QuadKey[]).map(key => {
             const qd = q[key]
             return (
-              <div key={key} className="flex items-center gap-3 rounded-lg border px-4 py-3">
-                <span className="text-lg">{qd.emoji}</span>
+              <div key={key} className="flex items-center gap-3 rounded-xl border bg-card p-4 shadow-xs">
+                <div className="p-2 rounded-lg bg-background border shadow-xs">
+                  {QUAD_ICONS[key]}
+                </div>
                 <div>
-                  <p className="text-xs font-semibold">{qd.name}</p>
+                  <p className="text-xs font-semibold text-muted-foreground">{qd.name}</p>
                   <p className="text-xl font-bold" style={{ color: qd.color }}>{fmt(qd.count)}</p>
                 </div>
               </div>
@@ -164,8 +166,10 @@ export default function RelationshipRisk() {
       {expanded && drillRows.length > 0 && (
         <section>
           <div className="h-px bg-border mb-6" />
-          <div className="flex items-center gap-2 mb-4">
-            <span className="text-xl">{q[expanded].emoji}</span>
+          <div className="flex items-center gap-2.5 mb-4">
+            <div className="p-1.5 rounded-md bg-background border shadow-xs">
+              {QUAD_ICONS[expanded]}
+            </div>
             <h2 className="text-sm font-semibold">{q[expanded].name} — Sample Accounts</h2>
             <Badge variant="secondary">{fmt(drillRows.length)} shown</Badge>
           </div>
