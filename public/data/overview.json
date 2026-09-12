@@ -1,0 +1,118 @@
+{
+  "kpis": {
+    "total_customers": 10000,
+    "active_customers": 9941,
+    "active_customers_pct": 99.4,
+    "at_risk_customers": 4668,
+    "at_risk_customers_pct": 46.7,
+    "lost_customers": 1066,
+    "lost_customers_pct": 10.7,
+    "total_net_value": 5443248.04,
+    "avg_net_value": 544.32,
+    "repeat_rate": 98.0,
+    "return_rate": 13.96,
+    "avg_discount_pct": 28.7,
+    "deal_dependent_cnt": 6194,
+    "deal_dependent_pct": 61.9
+  },
+  "top_issues": {
+    "silent_dissatisfaction": {
+      "count": 1063,
+      "pct": 10.6,
+      "title": "Silent Dissatisfaction",
+      "description": "Positive reviews (+VADER / high star) followed by >= 50% drop in subsequent orders."
+    },
+    "high_hesitation": {
+      "count": 574,
+      "pct": 5.7,
+      "title": "High Purchase Hesitation",
+      "description": "Frequent cart additions and browsing relative to conversion throughput."
+    },
+    "return_paradox": {
+      "count": 555,
+      "pct": 5.5,
+      "title": "Return Paradox (High Spend / High Returns)",
+      "description": "Top-quartile gross spenders with >= 20.5% refund ratios causing heavy margin erosion."
+    },
+    "contradictions_total": {
+      "count": 2134,
+      "pct": 21.3,
+      "title": "Sentiment / Behaviour Contradictions",
+      "description": "Customer actions directly contradicted stated sentiment (PSNB + NSCP)."
+    }
+  },
+  "distributions": {
+    "relationship_health": [
+      {
+        "bucket": "Healthy",
+        "count": 763
+      },
+      {
+        "bucket": "Declining",
+        "count": 3503
+      },
+      {
+        "bucket": "At Risk",
+        "count": 4668
+      },
+      {
+        "bucket": "Lost",
+        "count": 1066
+      }
+    ],
+    "discount_matrix": [
+      {
+        "segment": "Deal-dependent Valuable",
+        "count": 3196
+      },
+      {
+        "segment": "Potentially Unprofitable",
+        "count": 2998
+      },
+      {
+        "segment": "Normal",
+        "count": 2001
+      },
+      {
+        "segment": "Loyal Valuable",
+        "count": 1805
+      }
+    ],
+    "crm_segments": [
+      {
+        "segment": "Regular",
+        "count": 3500
+      },
+      {
+        "segment": "Budget Shopper",
+        "count": 3043
+      },
+      {
+        "segment": "Premium",
+        "count": 1982
+      },
+      {
+        "segment": "VIP",
+        "count": 974
+      },
+      {
+        "segment": "Occasional Visitor",
+        "count": 501
+      }
+    ],
+    "purchase_hesitation": [
+      {
+        "tier": "Low",
+        "count": 5846
+      },
+      {
+        "tier": "Moderate",
+        "count": 3580
+      },
+      {
+        "tier": "High",
+        "count": 574
+      }
+    ]
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "total_users": 1020982,
+  "archetypes": {
+    "Window Shopper": {
+      "name": "Window Shopper",
+      "emoji": "",
+      "color": "#636EFA",
+      "count": 792676,
+      "pct": 77.6,
+      "description": "High browse volume, low cart additions, minimal purchase conversion. These users are frequent but passive — they love to look but rarely commit.",
+      "thresholds": "view_count >= 5 * cart_count < 2 * conversion_rate < 0.05",
+      "crm_strategy": "Deploy time-limited personalised offers and wishlist reminders triggered by their most-viewed categories. Reducing perceived friction (free returns, price match) can convert passive browsers into occasional buyers.",
+      "intent_mix": {
+        "Casual Browsing": 90.6,
+        "Purchase Hesitation": 9.4
+      },
+      "signature": {
+        "view_count": 2.0,
+        "cart_count": 0.0,
+        "remove_count": 0.0,
+        "purchase_count": 0.0,
+        "unique_products_viewed": 2.0,
+        "session_count": 1.0,
+        "conversion_rate": 0.0,
+        "cart_abandonment_rate": 0.0
+      }
+    },
+    "Researcher": {
+      "name": "Researcher",
+      "emoji": "",
+      "color": "#EF553B",
+      "count": 103436,
+      "pct": 10.1,
+      "description": "Very high unique product views across many sessions and categories, but low purchase conversion. These users are gathering information and comparing extensively before deciding.",
+      "thresholds": "unique_products_viewed >= 10 * session_count >= 3 * conversion_rate < 0.10",
+      "crm_strategy": "Deliver rich comparison content, curated 'Best of' guides, and expert reviews for the categories they browse most. A 'Price Drop Alert' feature for their bookmarked products can capture them at the decision moment.",
+      "intent_mix": {
+        "Purchase Hesitation": 85.8,
+        "Casual Browsing": 14.2
+      },
+      "signature": {
+        "view_count": 16.0,
+        "cart_count": 0.0,
+        "remove_count": 0.0,
+        "purchase_count": 0.0,
+        "unique_products_viewed": 10.0,
+        "session_count": 3.0,
+        "conversion_rate": 0.0,
+        "cart_abandonment_rate": 0.0
+      }
+    },
+    "Cart Abandoner": {
+      "name": "Cart Abandoner",
+      "emoji": "",
+      "color": "#FF7F0E",
+      "count": 38400,
+      "pct": 3.8,
+      "description": "High cart addition rate but also high cart removal rate with low final purchases. Strong purchase intent signals that collapse before checkout — typically due to price sensitivity, shipping costs, or checkout friction.",
+      "thresholds": "cart_count >= 3 * cart_abandonment_rate >= 0.60 * conversion_rate < 0.15",
+      "crm_strategy": "Target with abandoned-cart email sequences within 1-3 hours, including a modest one-time incentive. A/B test removing shipping costs vs. small discounts. Streamline the checkout flow to reduce decision fatigue at the final step.",
+      "intent_mix": {
+        "Purchase Hesitation": 78.1,
+        "Casual Browsing": 21.9
+      },
+      "signature": {
+        "view_count": 7.0,
+        "cart_count": 1.0,
+        "remove_count": 0.0,
+        "purchase_count": 0.0,
+        "unique_products_viewed": 3.0,
+        "session_count": 1.0,
+        "conversion_rate": 0.0,
+        "cart_abandonment_rate": 100.0
+      }
+    },
+    "Impulse Buyer": {
+      "name": "Impulse Buyer",
+      "emoji": "",
+      "color": "#00CC96",
+      "count": 33696,
+      "pct": 3.3,
+      "description": "Low pre-purchase browsing, few cart additions, but high conversion rate when they do engage. These users decide fast — usually triggered by promotional events or compelling product displays.",
+      "thresholds": "view_count < 5 * cart_count < 2 * conversion_rate >= 0.40",
+      "crm_strategy": "Maximise exposure during flash sales, limited-time bundles, and 'New Arrival' pushes. Push notifications and one-click reorder prompts perform exceptionally well for this segment. Avoid over-nurturing — they don't need research content.",
+      "intent_mix": {
+        "Impulse Purchase": 82.1,
+        "Successful Conversion": 17.9
+      },
+      "signature": {
+        "view_count": 3.0,
+        "cart_count": 0.0,
+        "remove_count": 0.0,
+        "purchase_count": 1.0,
+        "unique_products_viewed": 1.0,
+        "session_count": 1.0,
+        "conversion_rate": 100.0,
+        "cart_abandonment_rate": 0.0
+      }
+    },
+    "Decisive Buyer": {
+      "name": "Decisive Buyer",
+      "emoji": "",
+      "color": "#AB63FA",
+      "count": 52774,
+      "pct": 5.2,
+      "description": "Moderate-to-low browse depth, rapid cart-to-purchase flow, consistent repeat sessions. These users know what they want, move directly through the funnel, and transact efficiently.",
+      "thresholds": "conversion_rate >= 0.25 * cart_abandonment_rate < 0.40 (not Impulse Buyer)",
+      "crm_strategy": "Invest in loyalty programmes and subscription offers — these users respond well to convenience-enhancing features like saved payment methods, one-click checkout, and personalised restock alerts for their favourite products.",
+      "intent_mix": {
+        "Successful Conversion": 93.5,
+        "Impulse Purchase": 6.5
+      },
+      "signature": {
+        "view_count": 11.0,
+        "cart_count": 1.0,
+        "remove_count": 0.0,
+        "purchase_count": 1.0,
+        "unique_products_viewed": 6.0,
+        "session_count": 2.0,
+        "conversion_rate": 50.0,
+        "cart_abandonment_rate": 0.0
+      }
+    }
+  },
+  "global_medians": {
+    "view_count": 3.0,
+    "cart_count": 0.0,
+    "remove_count": 0.0,
+    "purchase_count": 0.0,
+    "unique_products_viewed": 2.0,
+    "session_count": 1.0,
+    "conversion_rate": 0.0,
+    "cart_abandonment_rate": 0.0
+  },
+  "intent_distribution": {
+    "Casual Browsing": {
+      "name": "Casual Browsing",
+      "emoji": "",
+      "color": "#636EFA",
+      "count": 740992,
+      "pct": 72.6,
+      "description": "Low intent score. Users exploring without strong purchase signals."
+    },
+    "Purchase Hesitation": {
+      "name": "Purchase Hesitation",
+      "emoji": "",
+      "color": "#FF7F0E",
+      "count": 193520,
+      "pct": 19.0,
+      "description": "High intent signals present but no purchase completed — friction or doubt remains."
+    },
+    "Successful Conversion": {
+      "name": "Successful Conversion",
+      "emoji": "",
+      "color": "#00CC96",
+      "count": 55375,
+      "pct": 5.4,
+      "description": "High intent score followed by purchase. The ideal funnel outcome."
+    },
+    "Impulse Purchase": {
+      "name": "Impulse Purchase",
+      "emoji": "",
+      "color": "#AB63FA",
+      "count": 31095,
+      "pct": 3.0,
+      "description": "Low intent score but purchased anyway — triggered by moment or promotion."
+    }
+  },
+  "cross_tabulation": {
+    "Casual Browsing": {
+      "Cart Abandoner": 8392,
+      "Decisive Buyer": 0,
+      "Impulse Buyer": 0,
+      "Researcher": 14695,
+      "Window Shopper": 717905
+    },
+    "Impulse Purchase": {
+      "Cart Abandoner": 0,
+      "Decisive Buyer": 3415,
+      "Impulse Buyer": 27680,
+      "Researcher": 0,
+      "Window Shopper": 0
+    },
+    "Purchase Hesitation": {
+      "Cart Abandoner": 30008,
+      "Decisive Buyer": 0,
+      "Impulse Buyer": 0,
+      "Researcher": 88741,
+      "Window Shopper": 74771
+    },
+    "Successful Conversion": {
+      "Cart Abandoner": 0,
+      "Decisive Buyer": 49359,
+      "Impulse Buyer": 6016,
+      "Researcher": 0,
+      "Window Shopper": 0
+    }
+  }
+}
