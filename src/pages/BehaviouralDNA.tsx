@@ -19,8 +19,6 @@ import {
   Lightbulb,
   Sparkles,
   Users,
-  TrendingUp,
-  TrendingDown,
 } from "lucide-react"
 
 interface Archetype {
@@ -67,14 +65,7 @@ const INTENT_ICONS: Record<string, React.ReactNode> = {
   "Impulse Purchase": <Zap className="h-3.5 w-3.5 text-purple-500" />,
 }
 
-const FEATURE_LABELS: Record<string, { label: string; unit: string; isPct?: boolean }> = {
-  view_count: { label: "Product Views", unit: "" },
-  cart_count: { label: "Cart Additions", unit: "" },
-  unique_products_viewed: { label: "Unique Products Viewed", unit: "" },
-  session_count: { label: "Sessions", unit: "" },
-  conversion_rate: { label: "Conversion Rate", unit: "%", isPct: true },
-  cart_abandonment_rate: { label: "Cart Abandonment", unit: "%", isPct: true },
-}
+
 
 export default function BehaviouralDNA() {
   const [data, setData] = useState<BehaviouralDNAData | null>(null)
@@ -464,47 +455,6 @@ export default function BehaviouralDNA() {
                 <p className="text-sm text-emerald-950 leading-relaxed">
                   {selectedArchetype.crm_strategy}
                 </p>
-              </CardContent>
-            </Card>
-
-            {/* Feature Signature Metrics (Archetype Median vs Global Population) */}
-            <Card className="shadow-sm">
-              <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-semibold flex items-center gap-2">
-                  <Dna className="h-4 w-4 text-primary" /> Feature Signature (Segment Median vs Global Population)
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-1">
-                  {Object.entries(FEATURE_LABELS).map(([featKey, featConf]) => {
-                    const segVal = selectedArchetype.signature?.[featKey] ?? 0
-                    const globalVal = data.global_medians?.[featKey] ?? 0
-                    const formattedSeg = featConf.isPct ? `${(segVal * 100).toFixed(1)}%` : segVal.toFixed(1)
-                    const formattedGlobal = featConf.isPct ? `${(globalVal * 100).toFixed(1)}%` : globalVal.toFixed(1)
-                    const isHigher = segVal > globalVal
-                    const isLower = segVal < globalVal
-
-                    return (
-                      <div key={featKey} className="rounded-lg border bg-background p-2.5 text-xs">
-                        <div className="text-muted-foreground truncate">{featConf.label}</div>
-                        <div className="text-base font-bold text-foreground mt-0.5">{formattedSeg}</div>
-                        <div className="text-[10px] text-muted-foreground flex items-center gap-1.5 mt-1">
-                          <span>Benchmark: {formattedGlobal}</span>
-                          {isHigher && (
-                            <span className="inline-flex items-center text-emerald-600 font-semibold">
-                              <TrendingUp className="h-3 w-3 mr-0.5" /> Above Avg
-                            </span>
-                          )}
-                          {isLower && (
-                            <span className="inline-flex items-center text-amber-600 font-semibold">
-                              <TrendingDown className="h-3 w-3 mr-0.5" /> Below Avg
-                            </span>
-                          )}
-                        </div>
-                      </div>
-                    )
-                  })}
-                </div>
               </CardContent>
             </Card>
           </div>
