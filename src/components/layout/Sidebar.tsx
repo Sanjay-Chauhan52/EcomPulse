@@ -7,7 +7,6 @@ import {
   Scale,
   Filter,
   Dna,
-  Sparkles,
   Zap,
 } from "lucide-react"
 
@@ -26,7 +25,12 @@ const behavioralNavItems = [
   { name: "Behavioural DNA", path: "/behavioural-dna", icon: Dna },
 ]
 
-export function Sidebar() {
+interface SidebarProps {
+  /** Called when a nav link is clicked — used to close the mobile drawer */
+  onNavClick: () => void
+}
+
+export function Sidebar({ onNavClick }: SidebarProps) {
   return (
     <aside className="w-64 border-r bg-card/60 backdrop-blur flex flex-col h-screen sticky top-0">
       {/* Brand Header */}
@@ -53,7 +57,7 @@ export function Sidebar() {
         <div>
           <div className="px-3 mb-2 flex items-center justify-between">
             <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              CRM & Commercial Layer
+              CRM &amp; Commercial Layer
             </span>
             <span className="text-[11px] font-medium text-muted-foreground/70">
               10K Accounts
@@ -66,6 +70,7 @@ export function Sidebar() {
                 <NavLink
                   key={item.path}
                   to={item.path}
+                  onClick={onNavClick}
                   className={({ isActive }) =>
                     cn(
                       "flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors",
@@ -87,7 +92,7 @@ export function Sidebar() {
         <div>
           <div className="px-3 mb-2 flex items-center justify-between">
             <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              Clickstream & Behavioral
+              Clickstream &amp; Behavioral
             </span>
             <span className="text-[11px] font-medium text-muted-foreground/70">
               1.02M Users
@@ -100,6 +105,7 @@ export function Sidebar() {
                 <NavLink
                   key={item.path}
                   to={item.path}
+                  onClick={onNavClick}
                   className={({ isActive }) =>
                     cn(
                       "flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors",

@@ -43,10 +43,10 @@ const QUAD_ICONS: Record<QuadKey, React.ReactNode> = {
 }
 
 const QUAD_LAYOUT: { key: QuadKey; pos: string }[] = [
-  { key: "vocal_loyalists", pos: "col-start-1 row-start-1" },
-  { key: "champions", pos: "col-start-2 row-start-1" },
-  { key: "detractors", pos: "col-start-1 row-start-2" },
-  { key: "silent_churn", pos: "col-start-2 row-start-2" },
+  { key: "vocal_loyalists", pos: "sm:col-start-1 sm:row-start-1" },
+  { key: "champions", pos: "sm:col-start-2 sm:row-start-1" },
+  { key: "detractors", pos: "sm:col-start-1 sm:row-start-2" },
+  { key: "silent_churn", pos: "sm:col-start-2 sm:row-start-2" },
 ]
 
 function healthColor(bucket: string) {
@@ -95,14 +95,14 @@ export default function RelationshipRisk() {
       <section>
         <div className="relative">
 
-          <div className="ml-4">
+          <div className="ml-0 sm:ml-4">
             {/* X-axis header */}
-            <div className="grid grid-cols-2 mb-2 gap-4 px-2">
+            <div className="hidden sm:grid grid-cols-2 mb-2 gap-4 px-2">
               <div className="text-center text-xs font-semibold text-red-500 uppercase tracking-wider">Negative Sentiment</div>
               <div className="text-center text-xs font-semibold text-green-600 uppercase tracking-wider">Positive Sentiment</div>
             </div>
 
-            <div className="grid grid-cols-2 grid-rows-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-2 gap-4">
               {QUAD_LAYOUT.map(({ key, pos }) => {
                 const qd = q[key]
                 const isExpanded = expanded === key
@@ -144,7 +144,7 @@ export default function RelationshipRisk() {
 
       {/* Legend strip */}
       <section>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {(["champions", "silent_churn", "vocal_loyalists", "detractors"] as QuadKey[]).map(key => {
             const qd = q[key]
             return (

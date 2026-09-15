@@ -131,7 +131,7 @@ export default function PurchaseFriction() {
       {/* Funnel KPI row */}
       <section>
         <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4">Overall Conversion Funnel</h2>
-        <div className="flex items-stretch gap-3">
+        <div className="flex flex-col sm:flex-row items-stretch gap-3">
           <FunnelStep label="Page Views" value={f.views} icon={<Eye size={20} />} color="#6366f1" />
           <div className="flex flex-col items-center justify-center gap-1 px-1">
             <ArrowDown size={16} className="text-red-400" />
@@ -182,7 +182,7 @@ export default function PurchaseFriction() {
 
       {/* Category Table */}
       <section>
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
           <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Category-Level Friction Analysis</h2>
           <div className="flex gap-2">
             {tiers.map(t => (

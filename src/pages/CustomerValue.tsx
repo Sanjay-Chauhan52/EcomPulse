@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useMemo, useState } from "react"
+import React, { useEffect, useMemo, useState } from "react"
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, LabelList,
   ScatterChart, Scatter, ZAxis, ReferenceLine
@@ -220,7 +220,7 @@ export default function CustomerValue() {
       </div>
 
       {/* Top Metric Cards */}
-      <div className="grid gap-4 md:grid-cols-4">
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
         <Card className="shadow-sm hover:shadow-md transition-shadow">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-sm font-medium">Gross List Revenue</CardTitle>
@@ -290,7 +290,7 @@ export default function CustomerValue() {
           </div>
         </CardHeader>
         <CardContent>
-          <div className="h-80 w-full">
+          <div className="h-56 sm:h-80 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart
                 data={waterfallChartData}
@@ -417,7 +417,7 @@ export default function CustomerValue() {
           </div>
         </CardHeader>
         <CardContent>
-          <div className="h-96 w-full">
+          <div className="h-64 sm:h-96 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <ScatterChart
                 margin={{ top: 20, right: 30, bottom: 20, left: 30 }}
@@ -545,7 +545,7 @@ export default function CustomerValue() {
       </Card>
 
       {/* Quadrant Commercial Action Guidelines */}
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         <Card className="border-l-4 border-l-emerald-500 shadow-sm">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-semibold text-emerald-700">

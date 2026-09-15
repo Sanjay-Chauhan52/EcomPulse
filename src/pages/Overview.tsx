@@ -89,7 +89,7 @@ export default function Overview() {
     <div className="space-y-8 pb-10">
       <div>
         <div className="flex items-center gap-3 mb-1">
-          <h1 className="text-3xl font-bold tracking-tight">Commercial Overview</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Commercial Overview</h1>
           <Badge variant="outline" className="text-xs font-medium">CRM Layer</Badge>
         </div>
         <p className="text-muted-foreground text-sm">Macro Customer Health, Revenue Dynamics &amp; Top Operational Issues</p>
@@ -115,7 +115,7 @@ export default function Overview() {
 
       <section>
         <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4">Top Commercial Issues &amp; Behavioral Friction</h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {(["silent_dissatisfaction","high_hesitation","return_paradox","contradictions_total"] as const).map(key => {
             const issue = issues[key]
             const s = ISSUE_STYLE[key]

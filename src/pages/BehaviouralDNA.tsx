@@ -146,7 +146,7 @@ export default function BehaviouralDNA() {
       </div>
 
       {/* Top 5 Archetype Cards (Clickable) */}
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
         {archetypesList.map((arch) => {
           const isSelected = arch.name === selectedArchetype.name
           return (
@@ -184,7 +184,7 @@ export default function BehaviouralDNA() {
       </div>
 
       {/* Distribution Charts: DNA Archetypes & Purchase Intent */}
-      <div className="grid gap-6 lg:grid-cols-12">
+      <div className="grid gap-6 grid-cols-1 lg:grid-cols-12">
         {/* Horizontal Bar Chart of Archetypes */}
         <Card className="lg:col-span-7 shadow-sm">
           <CardHeader>
@@ -201,7 +201,7 @@ export default function BehaviouralDNA() {
             </div>
           </CardHeader>
           <CardContent>
-            <div className="h-72 w-full">
+            <div className="h-56 sm:h-72 w-full">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart
                   data={archetypeBarData}
@@ -363,7 +363,7 @@ export default function BehaviouralDNA() {
           </div>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-12">
+        <div className="grid gap-6 grid-cols-1 md:grid-cols-12">
           {/* Left Column: Metrics & Intent Mix */}
           <div className="space-y-4 md:col-span-5">
             <Card className="shadow-sm">

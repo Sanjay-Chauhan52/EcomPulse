@@ -264,7 +264,7 @@ export default function Customer360() {
           </p>
         </div>
 
-        <div className="relative min-w-[300px]">
+        <div className="relative w-full sm:min-w-[300px] sm:w-auto">
           <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider block mb-1">
             Jump to Customer ID
           </label>
@@ -314,7 +314,7 @@ export default function Customer360() {
                 <CardContent className="pt-4 pb-4 space-y-3">
                   <div>
                     <div className="flex justify-between text-xs mb-1">
-                      <span className="font-medium text-muted-foreground">⏳ Purchase Hesitation</span>
+                      <span className="font-medium text-muted-foreground">Purchase Hesitation</span>
                       <span className="font-semibold">{cust.hesitation_score.toFixed(1)} / 100</span>
                     </div>
                     <div className="h-2 rounded-full bg-slate-200 overflow-hidden">
@@ -374,7 +374,7 @@ export default function Customer360() {
                   <CardTitle className="text-sm font-semibold">Change-Over-Time Dynamics (Historical vs Last 60 Days)</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="grid grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <VelocityChart hist={cust.hist_orders_mo} rec={cust.rec_orders_mo} label="Purchase Frequency (orders/mo)" unit="/mo" />
                     <VelocityChart hist={cust.hist_sess_mo} rec={cust.rec_sess_mo} label="Session Activity (sessions/mo)" unit="/mo" />
                   </div>
